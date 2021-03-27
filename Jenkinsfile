@@ -4,6 +4,9 @@ node {
     def registry = 'gustavoapolinario/microservices-node-todo-frontend'
     def registryCredential = 'dockerhub'
 	
+	tools {
+		NodeJS 'NodeJS11.14.0'
+	}
 	stage('Git') {
 		git 'https://github.com/Bala-murali444/node-todo-frontend'
 	}
