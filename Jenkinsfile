@@ -8,7 +8,7 @@ node {
 		git 'https://github.com/Bala-murali444/node-todo-frontend'
 	}
 	stage('Build') {
-		sh 'npm config ls'
+		sh 'npm i -g install'
 	}
 	stage('Test') {
 		sh 'npm test'
