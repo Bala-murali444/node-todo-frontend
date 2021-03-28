@@ -1,14 +1,4 @@
 pipeline {
-  environment {
-
-    registry = "9885614249/todo-app-pipeline"
-
-    registryCredential = 'docker-hub-2'
-
-    dockerImage = ''
-
-  }
-
   agent any
     
   tools {nodejs "NodeJS"}
@@ -26,30 +16,6 @@ pipeline {
         sh 'npm install'
       }
     }
-    stage('Building image') {
-      steps{
-        script {
-          docker.build registry + ":$BUILD_NUMBER"
-        }
-      }
-    }
-    stage('Deploy Image') {
-
-      steps{
-
-        script {
-
-          docker.withRegistry( '', registryCredential ) {
-
-            dockerImage.push()
-
-          }
-
-        }
-
-      }
-
-    }     
     stage('Test') {
       steps {
          sh 'npm test'
