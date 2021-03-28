@@ -1,4 +1,14 @@
 pipeline {
+  environment {
+
+    registry = "9885614249/todo-app-pipeline"
+
+    registryCredential = 'docker-hub-2'
+
+    dockerImage = ''
+
+  }
+
   agent any
     
   tools {nodejs "NodeJS"}
